@@ -1,0 +1,16 @@
+[opener]
+# 1. The blocking version (swallows terminal)
+play_mpv_block = [
+    { run = 'mpv "$@"', desc = "Play with mpv" }
+]
+
+# 2. The detached version (separate window)
+play_mpv_detach = [
+    { run = 'systemd-run --user --quiet mpv "$@"', orphan = true, desc = "Play with mpv (Detached)" }
+]
+
+[open]
+prepend_rules = [
+    # Pass a list to "use". The first item is the default.
+    { mime = "video/*", use = [ "play_mpv_block", "play_mpv_detach" ] }
+]

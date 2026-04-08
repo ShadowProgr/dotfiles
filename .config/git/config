@@ -1,0 +1,14 @@
+[includeIf "gitdir:~/Projects/personal/"]
+    path = ~/.config/git/personal
+
+[includeIf "gitdir:~/Projects/omnistream/"]
+    path = ~/.config/git/omnistream
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
+
+[commit]
+    gpgsign = true

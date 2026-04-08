@@ -1,0 +1,7 @@
+[user]
+    name = ShadowProgr
+    email = 14125835+ShadowProgr@users.noreply.github.com
+    signingkey = ~/.ssh/personal.pub
+
+[core]
+    sshCommand = "ssh -i ~/.ssh/personal -o IdentitiesOnly=yes"

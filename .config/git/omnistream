@@ -1,0 +1,7 @@
+[user]
+    name = Dima (Hoang Vuong)
+    email = hoang@omnistream.co
+    signingkey = ~/.ssh/omnistream.pub
+
+[core]
+    sshCommand = "ssh -i ~/.ssh/omnistream -o IdentitiesOnly=yes"

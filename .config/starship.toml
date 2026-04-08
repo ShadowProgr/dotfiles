@@ -1,0 +1,83 @@
+# ~/.config/starship.toml
+
+# Control the prompt's spacing
+add_newline = true
+
+# Define the exact order and layout of the prompt.
+# A line break separates context from the input area, preventing long 
+# directory paths from pushing your typing cursor too far to the right.
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$cmd_duration\
+$line_break\
+$character"""
+
+# --- Module Configurations ---
+
+[directory]
+style = "bold cyan"
+read_only = " "
+truncation_length = 3
+truncate_to_repo = true
+# Displays the directory icon standard in Nerd Fonts
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[character]
+# The prompt symbol changes color to indicate if the last command succeeded or failed.
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold red"
+# Evaluates and displays specific Git repository states
+conflicted = "≠"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+modified = "!${count}"
+staged = "+${count}"
+deleted = "✘${count}"
+format = "([$all_status$ahead_behind]($style) )"
+
+[cmd_duration]
+# Only displays if a command takes longer than 2 seconds (2000ms) to execute.
+# This provides an objective metric for script or compilation performance.
+min_time = 2000
+format = "took [$duration]($style) "
+style = "bold yellow"
+
+# --- Environment Context (Optional but Recommended) ---
+
+[package]
+# Disables displaying the package version (e.g., Node or Cargo packages) 
+# by default to reduce terminal bloat unless explicitly needed.
+disabled = true
+
+[nodejs]
+symbol = " "
+style = "bold green"
+# Displays when a package.json, .node-version, or .nvmrc is present.
+# Mise automatically injects the active Node version into the path for this to read.
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "bold yellow"
+# Displays the active Python version and the name of the active virtual environment.
+format = "via [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+# Disable directory scanning for Python files, extensions, and folders
+detect_extensions = []
+detect_files = []
+detect_folders = []
+# Explicitly restrict activation to only standard virtualenvs
+detect_env_vars = ["VIRTUAL_ENV"]
