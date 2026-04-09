@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo "Configuring Firefox userChrome..."
+
+# 1. Determine the OS to find the right Firefox folder
+OS="$(uname -s)"
+if [ "$OS" = "Darwin" ]; then
+    FF_DIR="$HOME/Library/Application Support/Firefox/Profiles"
+else
+    FF_DIR="$HOME/.config/mozilla/firefox"
+fi
+
+# 2. Find the default release profile directory
+# Firefox usually appends ".default-release" to the main profile
+PROFILE_DIR=$(find "$FF_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
+
+# Fallback: check for just ".default" if ".default-release" isn't found
+if [ -z "$PROFILE_DIR" ]; then
+    PROFILE_DIR=$(find "$FF_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
+fi
+
+# 3. Create the symlink
+if [ -n "$PROFILE_DIR" ]; then
+    echo "Found Firefox profile at: $PROFILE_DIR"
+    
+    # Remove existing chrome directory/symlink if it exists to avoid errors
+    rm -rf "$PROFILE_DIR/chrome"
+    
+    # Symlink the tracked folder into the profile
+    ln -s "$HOME/.config/firefox-chrome" "$PROFILE_DIR/chrome"
+    echo "Symlink created successfully!"
+else
+    echo "Warning: Could not find a Firefox profile directory. Please run Firefox once to generate it."
+fi
