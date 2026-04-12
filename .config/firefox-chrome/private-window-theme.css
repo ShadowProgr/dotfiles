@@ -1,0 +1,4 @@
+/* Change the toolbar background color in Private Browsing Mode */
+:root[privatebrowsingmode="temporary"] #nav-bar {
+    background-color: #4a0072 !important; /* This is a distinct deep purple */
+}
