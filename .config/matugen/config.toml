@@ -3,3 +3,4 @@
 [templates.custom_pywalfox]
 input_path = "/home/shadowprogr/.config/matugen/templates/custom-pywalfox.json"
 output_path = "/home/shadowprogr/.cache/wal/custom-gen-colors.json"
+post_hook = '/home/shadowprogr/.local/bin/dms-theme-hook.sh {{mode}}'
