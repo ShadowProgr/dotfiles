@@ -1,0 +1,21 @@
+/* Round the corners of the actual website container */
+:root:not([inFullscreen]) .browserStack > browser {
+    border-radius: 12px 0px 0px 0px !important;
+    overflow: hidden !important;
+    
+    /* OPTIONAL: Uncomment the line below by removing the /* and */ 
+    /* if you want a "floating" container look like the Arc browser */
+    margin: 0px 0px 0px 6px !important;
+}
+
+/* Ensure corners stay perfectly square in Fullscreen mode */
+:root[inFullscreen] .browserStack > browser {
+    border-radius: 0px !important;
+    margin: 0px !important;
+}
+
+/* Make the background behind the rounded corners match the toolbar */
+#appcontent, 
+.browserStack {
+    background-color: var(--toolbar-bgcolor) !important;
+}

@@ -1,5 +1,6 @@
 @import "sidebar-mods.css"; 
 @import "private-window-theme.css";
+@import "rounded-corners.css";
 
 #TabsToolbar
 {

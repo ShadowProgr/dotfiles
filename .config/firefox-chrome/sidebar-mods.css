@@ -8,11 +8,11 @@ See the above repository for updates as well as full license text. */
  */
 
 :where(#main-window) #browser{
-  --uc-sidebar-width: 30px; /* Changed to 0px to completely hide */
+  --uc-sidebar-width: 28px; /* Changed to 0px to completely hide */
   --uc-sidebar-hover-width: 320px;
 }
 #main-window[sizemode="fullscreen"] #browser{
-  --uc-sidebar-width: 30px;
+  --uc-sidebar-width: 0px;
 }
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]{
@@ -48,7 +48,7 @@ See the above repository for updates as well as full license text. */
   display: block;
   top: 0;
   bottom: 0;
-  width: 0px; /* Adjust this value to make the edge hover area wider or narrower */
+  width: 6px; /* Adjust this value to make the edge hover area wider or narrower */
   z-index: 100;
 }
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([positionend],[sidebar-positionend])::after {
@@ -121,7 +121,7 @@ See the above repository for updates as well as full license text. */
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover > #sidebar,
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover > .sidebar-browser-stack > #sidebar{
   min-width: var(--uc-sidebar-hover-width) !important;
-  border-inline-color: rgb(80,80,80) !important; /* Restore border color when hovered */
+  border-inline-color: var(--toolbar-bgcolor) !important; /* Restore border color when hovered */
   transition-delay: 0ms !important;
 }
 
