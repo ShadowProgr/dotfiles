@@ -1,9 +1,32 @@
+# --- Environment Variables ---
+export PATH=/home/shadowprogr/.opencode/bin:$PATH
+export ANTHROPIC_CUSTOM_MODEL_OPTION="claude-opus-4-6"
+export ANTHROPIC_CUSTOM_MODEL_OPTION_NAME="Opus 4.6"
+export ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION="Previous Opus generation"
+
+# Split wrods by "/"
+export WORDCHARS=${WORDCHARS//\/}
+
+# --- Aliases ---
+alias upd-beaver-ce="sudo dnf install https://dbeaver.io/files/dbeaver-ce-latest-stable.aarch64.rpm -y"
+
+# --- Base Configuration ---
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
+
+# --- Plugin Manager (Zap) ---
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# plug "zap-zsh/fzf" # Disabled: Using native eval below
+plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/sudo"
 plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
+plug "hlissner/zsh-autopair"
 plug "zsh-users/zsh-syntax-highlighting"
+
+# --- Keybindings ---
 
 # --- Fix Navigation Keys in Zsh ---
 # Delete
@@ -31,22 +54,11 @@ if [[ -n "${terminfo[knp]}" ]]; then
   bindkey "${terminfo[knp]}"   down-line-or-history
 fi
 
+# Restore Ctrl+Backspace after zsh-autopair overrides it
+bindkey '^H' backward-kill-word
 
-# Load and initialise completion system
-autoload -Uz compinit
-compinit
-
-# Mise
-eval "$(/usr/bin/mise activate zsh)"
-
-# Starship
+# --- Tool Integrations ---
+eval "$(keychain --eval --quiet)"
+eval "$(fzf --zsh)"
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
-
-# SSH keychain
-eval $(keychain --eval --quiet)
-
-# opencode
-export PATH=/home/shadowprogr/.opencode/bin:$PATH
-
-# Update alias
-alias upd-beaver-ce="sudo dnf install https://dbeaver.io/files/dbeaver-ce-latest-stable.aarch64.rpm -y"
