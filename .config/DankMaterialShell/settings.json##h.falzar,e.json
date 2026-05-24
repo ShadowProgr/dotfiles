@@ -70,7 +70,7 @@
   "selectedGpuIndex": 0,
   "enabledGpuPciIds": [],
   "showSystemTray": true,
-  "systemTrayIconTintMode": "primary",
+  "systemTrayIconTintMode": "none",
   "systemTrayIconTintSaturation": 50,
   "systemTrayIconTintStrength": 135,
   "showClock": true,
@@ -205,7 +205,7 @@
       "type": "regex"
     }
   ],
-  "centeringMode": "index",
+  "centeringMode": "geometric",
   "clockDateFormat": "ddd dd/MM",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
@@ -291,7 +291,7 @@
   "batterySuspendBehavior": 0,
   "batteryProfileName": "",
   "batteryChargeLimit": 100,
-  "lockBeforeSuspend": false,
+  "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
   "fadeToLockGracePeriod": 5,
@@ -432,9 +432,31 @@
   "screenPreferences": {
     "wallpaper": [
       "all"
+    ],
+    "notifications": [
+      {
+        "name": "eDP-1",
+        "model": "Unknown"
+      }
+    ],
+    "osd": [
+      {
+        "name": "eDP-1",
+        "model": "Unknown"
+      }
+    ],
+    "toast": [
+      "all"
+    ],
+    "notepad": [
+      "all"
     ]
   },
-  "showOnLastDisplay": {},
+  "showOnLastDisplay": {
+    "notifications": true,
+    "osd": true,
+    "toast": true
+  },
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
@@ -449,9 +471,12 @@
       "enabled": true,
       "position": 0,
       "screenPreferences": [
-        "all"
+        {
+          "name": "eDP-1",
+          "model": "Unknown"
+        }
       ],
-      "showOnLastDisplay": false,
+      "showOnLastDisplay": true,
       "leftWidgets": [
         {
           "id": "workspaceSwitcher",
@@ -546,9 +571,12 @@
       "enabled": true,
       "position": 2,
       "screenPreferences": [
-        "all"
+        {
+          "name": "eDP-1",
+          "model": "Unknown"
+        }
       ],
-      "showOnLastDisplay": false,
+      "showOnLastDisplay": true,
       "leftWidgets": [
         {
           "id": "clipboard",
@@ -646,6 +674,179 @@
       "popupGapsManual": 4,
       "maximizeDetection": true,
       "scrollEnabled": false,
+      "scrollXBehavior": "column",
+      "scrollYBehavior": "workspace",
+      "shadowIntensity": 0,
+      "shadowOpacity": 60,
+      "shadowColorMode": "text",
+      "shadowCustomColor": "#000000"
+    },
+    {
+      "id": "bar1779324801912",
+      "name": "Bar 3",
+      "enabled": true,
+      "position": 0,
+      "screenPreferences": [
+        {
+          "name": "HDMI-A-1",
+          "model": "DELL U3425WE"
+        }
+      ],
+      "showOnLastDisplay": false,
+      "leftWidgets": [
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 400
+        },
+        {
+          "id": "workspaceSwitcher",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "systemTray",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "music",
+          "enabled": true
+        }
+      ],
+      "centerWidgets": [
+        {
+          "id": "focusedWindow",
+          "enabled": true,
+          "focusedWindowCompactMode": false
+        }
+      ],
+      "rightWidgets": [
+        {
+          "id": "clock",
+          "enabled": true,
+          "clockCompactMode": false
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "weather",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "claudeCodeUsage",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "cpuUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
+          "id": "memUsage",
+          "enabled": true,
+          "minimumWidth": true,
+          "showSwap": false
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "controlCenterButton",
+          "enabled": true,
+          "showNetworkIcon": true,
+          "showBluetoothIcon": true,
+          "showAudioIcon": true,
+          "showAudioPercent": false,
+          "showVpnIcon": true,
+          "showBrightnessIcon": false,
+          "showBrightnessPercent": false,
+          "showMicIcon": false,
+          "showMicPercent": true,
+          "showBatteryIcon": false,
+          "showPrinterIcon": false,
+          "showScreenSharingIcon": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
+          "id": "powerMenuButton",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 400
+        }
+      ],
+      "spacing": 0,
+      "innerPadding": 4,
+      "bottomGap": 0,
+      "transparency": 0,
+      "widgetTransparency": 1,
+      "squareCorners": false,
+      "noBackground": false,
+      "gothCornersEnabled": false,
+      "gothCornerRadiusOverride": false,
+      "gothCornerRadiusValue": 12,
+      "borderEnabled": false,
+      "borderColor": "surfaceText",
+      "borderOpacity": 1,
+      "borderThickness": 1,
+      "widgetOutlineEnabled": true,
+      "widgetOutlineColor": "primary",
+      "widgetOutlineOpacity": 0.25,
+      "widgetOutlineThickness": 1,
+      "widgetPadding": 8,
+      "maximizeWidgetIcons": false,
+      "maximizeWidgetText": false,
+      "removeWidgetPadding": false,
+      "fontScale": 1,
+      "iconScale": 1,
+      "autoHide": false,
+      "autoHideDelay": 250,
+      "showOnWindowsOpen": false,
+      "openOnOverview": false,
+      "visible": true,
+      "popupGapsAuto": true,
+      "popupGapsManual": 4,
+      "maximizeDetection": true,
+      "scrollEnabled": true,
       "scrollXBehavior": "column",
       "scrollYBehavior": "workspace",
       "shadowIntensity": 0,
