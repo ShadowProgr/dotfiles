@@ -56,12 +56,17 @@ min_time = 2000
 format = "took [$duration]($style) "
 style = "bold yellow"
 
-# --- Environment Context (Optional but Recommended) ---
+# --- Environment Context ---
 
 [package]
 # Disables displaying the package version (e.g., Node or Cargo packages) 
 # by default to reduce terminal bloat unless explicitly needed.
 disabled = true
+
+[mise]
+disabled = false
+symbol = "mise "
+health = "ready"
 
 [nodejs]
 symbol = " "
@@ -72,12 +77,9 @@ format = "via [$symbol($version )]($style)"
 
 [python]
 symbol = " "
-style = "bold yellow"
-# Displays the active Python version and the name of the active virtual environment.
-format = "via [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
 # Disable directory scanning for Python files, extensions, and folders
+# Restrict activation to only standard virtualenvs
 detect_extensions = []
 detect_files = []
 detect_folders = []
-# Explicitly restrict activation to only standard virtualenvs
-detect_env_vars = ["VIRTUAL_ENV"]
+#generic_venv_names = ["venv", ".venv"]
