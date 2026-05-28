@@ -82,8 +82,8 @@ eval "$(starship init zsh)"
 # Rebind default fzf triggers
 bindkey -r '^T'
 bindkey -r '\ec'
-bindkey '^F' fzf-file-widget  # Ctrl+F for files
-bindkey '^[f' fzf-cd-widget   # Alt+F for directories
+bindkey '^[f' fzf-file-widget  # Alt+F for files
+bindkey '^[d' fzf-cd-widget  # Alt+D for directories
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/shadowprogr/Projects/omnistream/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shadowprogr/Projects/omnistream/google-cloud-sdk/path.zsh.inc'; fi
