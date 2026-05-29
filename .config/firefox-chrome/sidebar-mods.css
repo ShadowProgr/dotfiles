@@ -17,8 +17,8 @@ See the above repository for updates as well as full license text. */
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]{
   --uc-autohide-sidebar-delay: 500ms; /* Wait before hiding sidebar */
-  --uc-autohide-transition-duration: 115ms;
-  --uc-autohide-transition-type: linear;
+  --uc-autohide-transition-duration: 200ms;
+  --uc-autohide-transition-type: cubic-bezier(0.4, 0.0, 0.2, 1);
   --browser-area-z-index-sidebar: 3;
   position: relative;
   min-width: var(--uc-sidebar-width) !important;
