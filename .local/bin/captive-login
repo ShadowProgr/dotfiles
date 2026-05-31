@@ -1,0 +1,19 @@
+#!/bin/bash
+INTERFACE="wlp1s0f0" # Change this if your Wi-Fi interface name is different
+
+echo "Unlocking DNS on $INTERFACE for Captive Portal..."
+# Temporarily allow plain DNS on the interface
+sudo resolvectl dnsovertls $INTERFACE no
+sudo resolvectl dnssec $INTERFACE no
+sudo resolvectl flush-caches
+
+echo "DNS unlocked. Please open your browser and log in to the portal."
+read -p "Press [Enter] ONLY AFTER you have successfully logged in..."
+
+echo "Re-securing interface..."
+# This command forces systemd-resolved to pull your strict 
+# settings directly back from /etc/systemd/network/20-wireless.network
+sudo resolvectl revert $INTERFACE
+sudo resolvectl flush-caches
+
+echo "Strict DNS-over-TLS restored."
