@@ -19,6 +19,7 @@ Here is a complete list of the tools and packages configured in these dotfiles:
 ### Applications & CLI Tools
 *   **Firefox**: Deeply customized using `userChrome.css`. Includes modifications for rounded corners, a private window theme, and sidebar tweaks. The `yadm bootstrap` script automatically symlinks this configuration to the active Firefox profile.
 *   **Yazi**: A blazing fast terminal file manager configured with `yazi.toml`.
+*   **FileManager1 D-Bus service**: Makes "Show in folder" in browsers open Yazi in a Foot window (`.config/org.freedesktop.FileManager1.common/`). Only the config and `yazi-wrapper.sh` are tracked here — the service itself must be built and installed from [org.freedesktop.FileManager1.common](https://github.com/boydaihungst/org.freedesktop.FileManager1.common) (`meson setup build && sudo ninja -C build install`) on each machine.
 *   **Git**: Core configuration split for general use, "personal", and "omnistream" contexts.
 *   **MPV**: Media player customized with `mpv.conf` and the `modernz` UI script.
 
