@@ -6,17 +6,15 @@ inputDevice=effect_output.j316-mic
 
 [StreamOutputs]
 blocklist=Chromium
-mostUsedPresets=Blank,Asahi M1 Pro 16",WF-1000XM5
+mostUsedPresets=Blank,Asahi M1 Pro 16",Koss KSC75,WF-1000XM5
 outputDevice=audio_effect.j316-convolver
 plugins=stereo_tools#0,convolver#0,limiter#0
-usedPresets=Asahi M1 Pro 16":21,Blank:32,WF-1000XM5:1
-visiblePage=pluginsPage
-visiblePlugin=limiter#0
+usedPresets=Asahi M1 Pro 16":28,Blank:137,WF-1000XM5:1,Koss KSC75:3
+visiblePlugin=stereo_tools#0
 
 [Window]
 autostartOnLogin=true
-height=690
+height=1069
 outputAutoloadingFallbackPreset=Blank
-outputAutoloadingUsesFallback=true
 visiblePipeWirePage=clientsPage
-width=1534
+width=1544

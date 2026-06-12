@@ -1,4 +1,4 @@
 [soe][StereoTools#0]
 outputGain=-1.5
-slev=2.5
-stereoBase=0.25
+slev=2
+stereoBase=0.2
