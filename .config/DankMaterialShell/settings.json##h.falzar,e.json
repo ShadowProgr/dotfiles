@@ -740,6 +740,15 @@
       ],
       "rightWidgets": [
         {
+          "id": "timer",
+          "enabled": true
+        },
+        {
+          "id": "spacer",
+          "enabled": true,
+          "size": 5
+        },
+        {
           "id": "clock",
           "enabled": true,
           "clockCompactMode": false
