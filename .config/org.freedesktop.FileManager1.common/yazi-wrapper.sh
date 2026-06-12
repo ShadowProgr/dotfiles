@@ -26,7 +26,7 @@ for arg in "$@"; do
 done
 
 cmd="yazi"
-termcmd="${TERMCMD:-foot --app-id=yazi}"
+termcmd="${TERMCMD:-foot --app-id=Yazi}"
 
 case "$BDUS_METHOD" in
 # Since yazi can handle both files, folders
