@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yazi
+Exec=/home/shadowprogr/.config/mango/scripts/launch-yazi.sh %u
+Terminal=true
+Categories=FileManager;ConsoleOnly;
+MimeType=inode/directory;
+NoDisplay=true

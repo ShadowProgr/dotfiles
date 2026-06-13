@@ -4,6 +4,11 @@ if [[ "$6" == "1" ]]; then
   set -x
 fi
 
+# Match the shell's fzf/zoxide look (z/Z keys). Portal gets session env, not rc.
+# NOTE: re-add these if you update this wrapper from upstream.
+. "${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf-env.sh"
+fzf_yazi_setup
+
 # This wrapper script is invoked by xdg-desktop-portal-termfilechooser.
 #
 # Inputs:
