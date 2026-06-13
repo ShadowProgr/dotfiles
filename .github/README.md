@@ -9,7 +9,7 @@ Here is a complete list of the tools and packages configured in these dotfiles:
 ### Window Manager & Shell
 *   **Mango**: A Wayland compositor setup. It features specialized tiling and scroller layouts, custom window rules (including a dedicated scratchpad for the Gemini CLI), and keybinds.
 *   **DankMaterialShell (DMS)**: A customized shell/desktop environment interface integrated via systemd and styled dynamically.
-*   **XDG Desktop Portal**: Configuration for screen sharing and portal functionality (`xdg-desktop-portal-wlr` and specific Mango portals).
+*   **XDG Desktop Portal**: Configuration for screen sharing and portal functionality (`xdg-desktop-portal-wlr` and specific Mango portals). The `FileChooser` portal is routed to `termfilechooser` so native open/save dialogs use Yazi (see below).
 
 ### Terminal & Prompt
 *   **Foot**: A fast, lightweight Wayland terminal emulator. Configured with a Gruvbox Material color scheme (`.config/foot/gruvbox-material-colors.ini`).
@@ -20,6 +20,7 @@ Here is a complete list of the tools and packages configured in these dotfiles:
 *   **Firefox**: Deeply customized using `userChrome.css`. Includes modifications for rounded corners, a private window theme, and sidebar tweaks. The `yadm bootstrap` script automatically symlinks this configuration to the active Firefox profile.
 *   **Yazi**: A blazing fast terminal file manager configured with `yazi.toml`.
 *   **FileManager1 D-Bus service**: Makes "Show in folder" in browsers open Yazi in a Foot window (`.config/org.freedesktop.FileManager1.common/`). Only the config and `yazi-wrapper.sh` are tracked here — the service itself must be built and installed from [org.freedesktop.FileManager1.common](https://github.com/boydaihungst/org.freedesktop.FileManager1.common) (`meson setup build && sudo ninja -C build install`) on each machine.
+*   **termfilechooser portal**: Makes native open/save file dialogs (e.g. uploading or saving files in Firefox) open Yazi in a dedicated Foot window instead of a GTK picker (`.config/xdg-desktop-portal-termfilechooser/`). The tracked `config` points the portal at `yazi-wrapper.sh`, which launches Yazi to select, multi-select, choose a directory, or place a save target. Requires the [`xdg-desktop-portal-termfilechooser`](https://github.com/boydaihungst/xdg-desktop-portal-termfilechooser) backend to be installed on each machine, and is activated via the `FileChooser` line in `mango-portals.conf`.
 *   **Git**: Core configuration split for general use, "personal", and "omnistream" contexts.
 *   **MPV**: Media player customized with `mpv.conf` and the `modernz` UI script.
 
