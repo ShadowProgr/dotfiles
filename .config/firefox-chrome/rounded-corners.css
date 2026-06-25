@@ -17,5 +17,5 @@
 /* Make the background behind the rounded corners match the toolbar */
 #appcontent, 
 .browserStack {
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
 }
